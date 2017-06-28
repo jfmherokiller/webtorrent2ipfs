@@ -1,0 +1,23 @@
+{
+  "name": "webtorrent2ipfs",
+  "version": "0.0.1",
+  "dependencies": {
+    "ipfs-api": "^14.0.4",
+    "jquery": "^3.2.1",
+    "webtorrent": "^0.98.19"
+  },
+  "scripts": {
+    "compile_typescript": "tsc",
+    "setup_test":"npm run compile_typescript && npm run bundlestuff && npm run add_to_ipfs",
+    "add_to_ipfs": "ipfs add --pin=false -r . -Q",
+    "postinstall": "npm run setup_test",
+    "bundlestuff": "browserify index.js --debug --outfile ./dist/bundle.js"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.2.5",
+    "@types/node": "^8.0.4",
+    "@types/webtorrent": "^0.98.4",
+    "browserify": "^14.4.0",
+    "typescript": "^2.4.1"
+  }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>http2ipfs - add WebTorrents to ipfs</title>
+
+<script src="dist/bundle.js"></script>
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+<style>
+
+body {
+  font-family: "Helvetica Neue",serif;
+}
+
+iframe {
+  border: 1px solid #ccc;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-x-12">
+
+      <h1>Add a WebTorrent to IPFS</h1>
+
+      <form>
+        <div class="form-group">
+          <label for="url">Torrent/Magnet to add to IPFS</label>
+          <input type="text" class="form-control" id="url"
+            placeholder="Paste URL to add - http://i.imgur.com/AW12e.gif">
+        </div>
+        <div class="form-group">
+          <label for="api-endpoint">IPFS API Endpoint
+            <small>make sure you enable either CORS or writable gateway</small>
+          </label>
+          <input type="text" class="form-control" id="api-endpoint"
+            value="/ip4/127.0.0.1/tcp/5001"
+            placeholder="/ip4/127.0.0.1/tcp/5001">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default btn-success btn-lg" id="add2ipfs">
+            <i class="glyphicon glyphicon-plus"></i> Add to IPFS
+          </button>
+        </div>
+        <div class="alert" role="alert" id="alert"></div>
+      </form>
+
+      <hr />
+      <div id="result" style="display: none;">
+        <h1>Result</h1>
+
+        <br /><b>IPFS Path:</b> <span id="ipfs-path" class="small code"></span>
+
+        <br /><b>Local HTTP-to-IPFS Gateway:</b>
+          <a id="ipfs-gway-local" class="code"></a>
+        <iframe id="iframe-local" width="100%" height="600px"></iframe>
+
+        <br /><b>Global HTTP-to-IPFS Gateway:</b>
+          <a id="ipfs-gway-global" class="code"></a>
+        <iframe id="iframe-global" width="100%" height="600px"></iframe>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
