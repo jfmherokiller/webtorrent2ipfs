@@ -2,7 +2,8 @@
 
 This is a simple webtool to add WebTorrents to an IPFS node.
 
-
+## Serious Issues
+- This only works on the localhost gateway because the requests are forced to run in https mode on ipfs.io which breaks them.
 
 ## Troubleshooting
 
